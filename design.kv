@@ -1,0 +1,27 @@
+<MainScreen>:
+    GridLayout:
+        cols: 1
+        padding: 15, 15
+        spacing: 20, 20
+        Label:
+            text: "What are we looking for?"
+            font_size: "20sp"
+        TextInput:
+            id: input
+            hint_text: "Things to try: Paris, Antananarivo..."
+            font_size: "20sp"
+        Button:
+            text: "Find it"
+            on_press: root.find(root.ids.input.text)
+            opacity: 1 if self.state == 'normal' else 0.5
+        ScrollView:
+            Label:
+                id: coordinates
+                text: ""
+                text_size: self.width, None
+                size_hint_max_y: None
+                height: self.texture_size[1]
+
+<RootWidget>:
+    MainScreen:
+        name: 'main_screen'
